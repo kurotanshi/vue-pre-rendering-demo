@@ -55,7 +55,15 @@ module.exports.plugins = (module.exports.plugins || []).concat([
   new HtmlWebpackPlugin({
     template: './index.html',
     inject: false
-  }),
+  })
+]);
+
+var PrerenderSpaPlugin = require('prerender-spa-plugin');
+
+module.exports.plugins = (module.exports.plugins || []).concat([
+  new PrerenderSpaPlugin(
+    path.join(__dirname, './dist'), ['/']
+  )
 ]);
 
 
